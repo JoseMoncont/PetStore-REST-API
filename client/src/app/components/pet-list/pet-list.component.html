@@ -1,0 +1,29 @@
+<div class="col-md-9 mb-4">
+    <h2 class="d-inline mr-2 ">Pets</h2>
+    <a class="d-inline btn btn-dark " routerLink="/pets/add" role="button">Add a new pet | <em class="fas fa-plus-circle"></em></a>
+</div>
+
+<div class="col-md-4" *ngFor="let pet of pets">
+    <div class="card text-center">
+        <div class="card-header bg-primary text-white d-flex justify-content-between aling-items-center">
+            {{pet.name}}
+            <button class="btn btn-danger" (click)="deletePet(pet.id)">
+                Delete
+            </button>
+        </div>
+        <img [src]="pet.photoUrls" class="card-img-top" alt="pet">
+        <div class="card-body">
+            <p>Category: {{pet.category}}</p>
+            <p>Tags: {{pet.tags}} </p>
+            <p> <span class="badge badge-primary">{{pet.status}}</span> </p>
+            
+            <a [routerLink]="['/pets/edit', pet.id]" class="btn btn-info btn-block">
+                EDIT PET
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>

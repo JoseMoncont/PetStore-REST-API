@@ -1,0 +1,31 @@
+<div class="col-md-9 mb-4">
+    <h2 class="d-inline mr-2 ">Users</h2>
+    <a class="d-inline btn btn-dark " routerLink="/users/add" role="button">Add a new User | <em class="fas fa-plus-circle"></em></a>
+</div>
+
+<div class="col-md-4" *ngFor="let user of users">
+    <div class="card text-center">
+        <div class="card-header bg-primary text-white d-flex justify-content-between aling-items-center">
+            <h4><em class="fas fa-user "> {{user.username}} </em></h4>
+            
+            <button class="btn btn-danger" (click)="deleteUser(user.id)">
+                Delete
+            </button>
+        </div>
+        
+        <div class="card-body">
+            <p>{{user.firstname + ' ' + user.lastname}}</p>
+            <p> <span class="badge badge-secondary">{{user.username}}</span> </p>
+            <p>{{user.email}} </p>
+            <p>{{user.phone}} </p>
+            <p> {{user.userStatus}} </p>
+            <a [routerLink]="['/users/edit', user.id]" class="btn btn-info btn-block">
+                EDIT USER
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
